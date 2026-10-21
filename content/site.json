@@ -1,0 +1,43 @@
+{
+ "title": "Media Reactions",
+ "description": "Direct Response TV Experts",
+ "url": "https://mediareactions.com",
+ "nav": [
+  {
+   "label": "Low Leads",
+   "href": "/low-leads/"
+  },
+  {
+   "label": "High Lead Cost",
+   "href": "/high-lead-cost/"
+  },
+  {
+   "label": "Poor Quality",
+   "href": "/poor-quality/"
+  },
+  {
+   "label": "Competition",
+   "href": "/competition/"
+  },
+  {
+   "label": "Satisfaction",
+   "href": "/satisfaction/"
+  },
+  {
+   "label": "Free Offer",
+   "href": "/free-offer/"
+  },
+  {
+   "label": "Services",
+   "href": "/services/"
+  },
+  {
+   "label": "About Us",
+   "href": "/about-us/"
+  },
+  {
+   "label": "Contact Us",
+   "href": "/contact-us/"
+  }
+ ]
+}

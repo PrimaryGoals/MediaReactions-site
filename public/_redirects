@@ -1,0 +1,9 @@
+# Old WordPress addresses that now point at the home page
+/agency / 301
+/agency/ / 301
+/drtv /drtv/charity/ 301
+/drtv/ /drtv/charity/ 301
+/drtv/agency / 301
+/drtv/agency/ / 301
+/feed / 301
+/feed/ / 301

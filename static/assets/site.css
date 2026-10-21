@@ -1,0 +1,29 @@
+/* Media Reactions: small additions on top of the OptimizePress stylesheets. */
+body { margin: 0; font-family: Roboto, Arial, sans-serif; color: #222; background: #fff; }
+.skip { position: absolute; left: -9999px; }
+.skip:focus { left: 8px; top: 8px; background: #fff; padding: 8px; z-index: 10; }
+
+/* ordinary pages */
+.plain { padding: 40px 0 60px; }
+.plain .fixed-width { max-width: 860px; margin: 0 auto; padding: 0 20px; }
+.plain h1 { color: #6C1000; font-size: 32px; margin: 0 0 20px; }
+.plain .prose { font-size: 18px; line-height: 1.6; }
+.plain .prose h2 { font-size: 24px; }
+.plain .prose a { color: #6C1000; }
+
+/* banner menu on narrow screens */
+.banner .op-logo img { max-width: 100%; height: auto; }
+@media (max-width: 700px) {
+  .banner .navigation ul { padding: 0; }
+  .banner .navigation li { display: block; margin: 4px 0; }
+}
+.footer-copyright { text-align: center; }
+
+/* contact form pop-up (see site.js) */
+.mr-modal { position: fixed; inset: 0; background: rgba(0, 0, 0, .75); z-index: 100000; overflow: auto; padding: 30px 15px; }
+.mr-modal-box { position: relative; max-width: 620px; margin: 0 auto; background: #fff; padding: 30px 25px; border-radius: 4px; }
+.mr-modal-close { position: absolute; top: 4px; right: 10px; border: 0; background: none; font-size: 32px; line-height: 1; cursor: pointer; color: #555; }
+.mr-modal-body input[type=text], .mr-modal-body input[type=email] { display: block; box-sizing: border-box; width: 100%; margin: 0 0 10px; padding: 12px; font-size: 16px; }
+.mr-modal-body .progressbar-style-1 { position: relative; height: 26px; background: #eee; border-radius: 4px; overflow: hidden; text-align: center; line-height: 26px; font-size: 13px; color: #333; }
+.mr-modal-body .progressbar-style-1::before { content: ''; position: absolute; left: 0; top: 0; bottom: 0; width: 50%; background: #dedede; }
+.mr-modal-body .progressbar-style-1 span { position: relative; }
