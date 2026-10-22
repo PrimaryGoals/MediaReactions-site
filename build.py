@@ -13,6 +13,7 @@ URL structure matches the old WordPress site:
   /drtv/thank-you/       landing page (opt-in thank-you)
   /<page-slug>/          ordinary pages
 """
+import datetime as dt
 import html
 import json
 import re
@@ -30,7 +31,8 @@ SITE_URL = SITE['url']
 BRAND = '#6C1000'
 LOGO = '/wp-content/uploads/2017/02/cropped-logo.jpg'
 OP = '/wp-content/plugins/optimizePressPlugin/'
-CSS_VERSION = '2'
+CSS_VERSION = '3'
+YEAR_NOW = dt.date.today().year  # the footer year; site.js also keeps it current in the visitor's browser
 
 esc = html.escape
 
@@ -177,8 +179,8 @@ def document(title, path, body, description='', noindex=False):
         '</div></div>',
         body,
         '<div class="full-width footer small-footer-text"><div class="row"><div class="fixed-width">'
-        '<p class="footer-copyright">Copyright 2017 - Media Reactions - All Rights Reserved</p>'
-        '</div></div></div>',
+        '<p class="footer-copyright">Copyright <span class="current-year">%d</span> - Media Reactions - All Rights Reserved</p>'
+        '</div></div></div>' % YEAR_NOW,
         '</div>',
         '<script src="/assets/site.js?v=%s"></script>' % CSS_VERSION,
         '</body></html>',

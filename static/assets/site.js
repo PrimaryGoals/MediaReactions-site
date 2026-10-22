@@ -1,3 +1,9 @@
+/* Keeps the footer's copyright year current without a rebuild. */
+(function () {
+  var year = String(new Date().getFullYear());
+  Array.prototype.forEach.call(document.querySelectorAll('.current-year'), function (el) { el.textContent = year; });
+})();
+
 /* Opens the contact form pop-up on the landing pages (replaces the OptimizePress pop-up script). */
 (function () {
   var links = document.querySelectorAll('a.css-button');
