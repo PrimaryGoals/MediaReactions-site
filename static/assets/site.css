@@ -19,6 +19,9 @@ body { margin: 0; font-family: Roboto, Arial, sans-serif; color: #222; backgroun
 }
 .footer-copyright { text-align: center; }
 
+/* Landing-page call-to-action buttons: OptimizePress's script used to size them, so give them a real width */
+a.css-button { box-sizing: border-box; width: auto !important; min-width: 320px; max-width: 100%; padding-left: 30px !important; padding-right: 30px !important; text-align: center; text-decoration: none; cursor: pointer; }
+
 /* contact form pop-up (see site.js) */
 .mr-modal { position: fixed; inset: 0; background: rgba(0, 0, 0, .75); z-index: 100000; overflow: auto; padding: 30px 15px; }
 .mr-modal-box { position: relative; max-width: 620px; margin: 0 auto; background: #fff; padding: 30px 25px; border-radius: 4px; }

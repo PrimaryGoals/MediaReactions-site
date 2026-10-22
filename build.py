@@ -30,7 +30,7 @@ SITE_URL = SITE['url']
 BRAND = '#6C1000'
 LOGO = '/wp-content/uploads/2017/02/cropped-logo.jpg'
 OP = '/wp-content/plugins/optimizePressPlugin/'
-CSS_VERSION = '1'
+CSS_VERSION = '2'
 
 esc = html.escape
 
