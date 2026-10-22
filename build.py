@@ -98,6 +98,45 @@ def render_body(raw):
 
 
 # --------------------------------------------------------------------------
+# Contact forms: the old Infusionsoft (Keap) account is closed, so the
+# landing-page forms post to FormSubmit.co, which emails each submission.
+# To use another address or service, change the two constants below.
+# --------------------------------------------------------------------------
+
+FORM_TO = 'ashley@primarygoals.com'
+FORM_ENDPOINT = 'https://formsubmit.co/' + FORM_TO
+FORM_FIELDS = {  # Infusionsoft field name -> name shown in the email
+    'inf_field_FirstName': 'First name',
+    'inf_field_LastName': 'Last name',
+    'inf_field_Email': 'email',  # FormSubmit uses a field called "email" as the reply-to address
+    'inf_field_Phone1': 'Phone',
+    'inf_field_Company': 'Company',
+}
+
+
+def email_forms(s):
+    """Point the OptimizePress opt-in forms at FormSubmit instead of Infusionsoft."""
+    def convert(m):
+        form = m.group(0)
+        name = re.search(r'name="inf_form_name" value="([^"]*)"', form)
+        subject = 'Media Reactions contact request' + (' (%s)' % name.group(1) if name else '')
+        hidden = ('<div style="display:none">'
+                  '<input type="hidden" name="_subject" value="%s">'
+                  '<input type="hidden" name="_next" value="%s/drtv/thank-you/">'
+                  '<input type="hidden" name="_captcha" value="false">'
+                  '<input type="hidden" name="_template" value="table">'
+                  '<input type="text" name="_honey" tabindex="-1" autocomplete="off">'
+                  '</div>') % (esc(subject), SITE_URL)
+        form = re.sub(r'<div style="display:none"><input type="hidden" name="inf_form_xid".*?</div>',
+                      lambda _: hidden, form, count=1, flags=re.S)
+        form = re.sub(r'action="https://[^"]*infusionsoft[^"]*"', 'action="%s"' % FORM_ENDPOINT, form)
+        for old, new in FORM_FIELDS.items():
+            form = form.replace('name="%s"' % old, 'name="%s"' % new)
+        return form
+    return re.sub(r'<form\b[^>]*infusionsoft[^>]*>.*?</form>', convert, s, flags=re.S)
+
+
+# --------------------------------------------------------------------------
 # Page shell: the same maroon banner, menu and footer on every page
 # --------------------------------------------------------------------------
 
@@ -156,7 +195,8 @@ def main():
         out[path] = content
 
     for p in op_pages:
-        add(p['path'], document(p['title'], p['path'], p['raw'], noindex=(p['slug'] == 'thank-you')))
+        add(p['path'], document(p['title'], p['path'], email_forms(p['raw']),
+                                noindex=(p['slug'] == 'thank-you')))
 
     for p in pages:
         body = ('<div id="content_area" class="plain"><div class="fixed-width"><article>'
