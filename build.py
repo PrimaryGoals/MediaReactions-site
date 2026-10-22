@@ -31,7 +31,7 @@ SITE_URL = SITE['url']
 BRAND = '#6C1000'
 LOGO = '/wp-content/uploads/2017/02/cropped-logo.jpg'
 OP = '/wp-content/plugins/optimizePressPlugin/'
-CSS_VERSION = '3'
+CSS_VERSION = '5'
 YEAR_NOW = dt.date.today().year  # the footer year; site.js also keeps it current in the visitor's browser
 
 esc = html.escape

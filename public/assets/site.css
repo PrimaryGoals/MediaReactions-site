@@ -19,6 +19,10 @@ body { margin: 0; font-family: Roboto, Arial, sans-serif; color: #222; backgroun
 }
 .footer-copyright { text-align: center; }
 
+/* Video embeds: the wrapper reserves a 16:9 box (padding-bottom); the player must fill it, or phones crop it */
+.video-plugin-new.embed > div { position: relative !important; }
+.video-plugin-new.embed > div > iframe { position: absolute !important; top: 0; left: 0; width: 100% !important; height: 100% !important; border: 0; }
+
 /* Landing-page call-to-action buttons: OptimizePress's script used to size them, so give them a real width */
 a.css-button { box-sizing: border-box; width: auto !important; min-width: 320px; max-width: 100%; padding-left: 30px !important; padding-right: 30px !important; text-align: center; text-decoration: none; cursor: pointer; }
 
