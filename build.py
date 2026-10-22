@@ -105,7 +105,7 @@ def render_body(raw):
 # To use another address or service, change the two constants below.
 # --------------------------------------------------------------------------
 
-FORM_TO = 'ashley@primarygoals.com'
+FORM_TO = 'ron@mediareactions.com'
 FORM_ENDPOINT = 'https://formsubmit.co/' + FORM_TO
 FORM_FIELDS = {  # Infusionsoft field name -> name shown in the email
     'inf_field_FirstName': 'First name',
